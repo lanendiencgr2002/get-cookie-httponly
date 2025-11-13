@@ -16,7 +16,9 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       const url = new URL(currentTab.url);
       const domain = url.hostname;
 
-      chrome.cookies.getAll({ domain: domain }, function (cookies) {
+      // 使用URL而不是domain来获取所有相关cookies（包括子域名）
+      chrome.cookies.getAll({ url: currentTab.url }, function (cookies) {
+        console.log('获取到cookies数量:', cookies.length, '域名:', domain);
         sendResponse({ success: true, cookies: cookies });
       });
     });
