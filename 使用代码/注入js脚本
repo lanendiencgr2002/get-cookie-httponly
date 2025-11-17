@@ -1,0 +1,40 @@
+{event: 'InjectJSCode', data: {…}, ws: {…}}data: {xpath: '', JSCode: '\n        try{\n            var cur_cookie2="cur_coo… result : ex.message}; \n        }           \n    '}event: "InjectJSCode"ws: {debug: true, automaticOpen: true, reconnectInterval: 1000, maxReconnectInterval: 30000, reconnectDecay: 1.5, …}[[Prototype]]: Object
+CMIPASelector.js:20 {event: 'InjectJSCode', data: {…}, ws: {…}}
+CMIPASelector.js:20 {event: 'InjectJSCode', data: {…}, ws: {…}}
+
+
+"
+        try{
+            var cur_cookie2="cur_cookie2";
+ var outarguments = [{"name": "cur_cookie2", "direction": "out", "value": "cur_cookie2"}];
+            cur_cookie2 = window.getCookieExtension.getCookieString()
+            for(let argument of outarguments) {argument['value'] = eval(argument['name'])}
+            return { isErr : false, result : outarguments}; 
+
+        }catch(ex){
+            return { isErr : true, result : ex.message}; 
+        }           
+    "
+
+
+10:26:13 注入JavaScript脚本 - 注入JavaScript脚本 : 运行失败，原因：调用注入脚本接口失败，错误码:400，错误信息:js脚本错误:Cannot read properties of undefined (reading 'getCookieString')
+
+{
+    "event": "InjectJSCode",
+    "data": {
+        "xpath": "",
+        "JSCode": "\n        try{\n            var cur_cookie2=\"cur_cookie2\";\r\n var outarguments = [{\"name\": \"cur_cookie2\", \"direction\": \"out\", \"value\": \"cur_cookie2\"}];\n            cur_cookie2 = eval(\"window.getCookieExtension.getCookieString()\")\n            for(let argument of outarguments) {argument['value'] = eval(argument['name'])}\n            return { isErr : false, result : outarguments}; \n\n        }catch(ex){\n            return { isErr : true, result : ex.message}; \n        }           \n    "
+    },
+    "ws": {
+        "debug": true,
+        "automaticOpen": true,
+        "reconnectInterval": 1000,
+        "maxReconnectInterval": 30000,
+        "reconnectDecay": 1.5,
+        "timeoutInterval": 2000,
+        "url": "ws://127.0.0.1:63365/uosbrowser",
+        "reconnectAttempts": 0,
+        "readyState": 1,
+        "protocol": ""
+    }
+}
